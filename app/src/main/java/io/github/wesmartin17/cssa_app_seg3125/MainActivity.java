@@ -1,5 +1,6 @@
 package io.github.wesmartin17.cssa_app_seg3125;
 
+import android.graphics.Color;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -24,8 +25,29 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mTabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        mTabLayout.setTabTextColors(
+                Color.WHITE,
+                Color.WHITE);
 
+        final String[] labels = {"EVENTS","HOME","INFO"};
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.setText(labels[tab.getPosition()]);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.setText("");
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         mTabLayout.setupWithViewPager(mViewPager);
+
         mViewPager.setAdapter(new FragmentPagerAdapter(mFragmentManager) {
             @Override
             public Fragment getItem(int position) {

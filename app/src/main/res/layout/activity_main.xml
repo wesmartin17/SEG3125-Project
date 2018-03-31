@@ -15,7 +15,8 @@
         android:layout_weight="9"
         android:background="@color/colorPrimary"
         app:tabIndicatorColor="#FFFFFF"
-        app:tabIndicatorHeight="4dp">
+        app:tabIndicatorHeight="4dp"
+        app:tabTextColor="#FFFFFF">
 
         <android.support.design.widget.TabItem
             android:id="@+id/tabEvents"

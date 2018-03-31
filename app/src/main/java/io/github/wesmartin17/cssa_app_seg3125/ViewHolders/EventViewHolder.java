@@ -1,7 +1,9 @@
 package io.github.wesmartin17.cssa_app_seg3125.ViewHolders;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.github.wesmartin17.cssa_app_seg3125.R;
@@ -14,8 +16,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
     TextView mTitleText;
     TextView mDescriptionText;
-    String imgUri;
-
+    ImageView mImageView;
 
     public EventViewHolder(View itemView) {
         super(itemView);
@@ -29,6 +30,12 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
     public void setDescriptionText(String text){
         mDescriptionText.setText(text);
+    }
+
+    public void setImgDrawable(Drawable d){
+
+        this.mImageView.setImageDrawable(d);
+
     }
 
 }
