@@ -2,30 +2,20 @@ package io.github.wesmartin17.cssa_app_seg3125;
 
 
 import android.os.Bundle;
-import android.os.Debug;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import io.github.wesmartin17.cssa_app_seg3125.Adapters.EventAdapter;
-import io.github.wesmartin17.cssa_app_seg3125.ViewHolders.EventViewHolder;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragmentEvents extends Fragment {
 
-    RecyclerView mRecyclerView;
+    private static FragmentManager mFragmentManager;
+    private static FragmentTransaction mFragmentTransition;
 
     public FragmentEvents() {
         // Required empty public constructor
@@ -36,44 +26,35 @@ public class FragmentEvents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_event, container, false);
+        View view = inflater.inflate(R.layout.fragment_events, container, false);
+        mFragmentManager = getFragmentManager();
+        mFragmentTransition = mFragmentManager.beginTransaction();
+        mFragmentTransition.setCustomAnimations(R.anim.slide_in_right,R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_right);
+        mFragmentTransition.replace(R.id.frameeee,new FragmentListOfEvents());
+        mFragmentTransition.addToBackStack(null);
+        //mFragmentManager.beginTransaction().add(new FragmentEvents(),"EVENTS").commit();
+        mFragmentTransition.commit();
 
-
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(new EventAdapter(getContext()));
-        layoutManager.scrollToPosition(4);
-
-
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            boolean old = false;
-
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                Log.v("CSSA",""+layoutManager.findFirstVisibleItemPosition());
-                if(layoutManager.findFirstVisibleItemPosition() < 4 && !old){
-                    old = true;
-                    //Toast.makeText(getContext(),"Showing past events",Toast.LENGTH_SHORT).show();
-                    Snackbar.make(recyclerView,"Showing past events",Snackbar.LENGTH_SHORT).show();
-                }
-                else if(layoutManager.findFirstVisibleItemPosition() >=4 && old){
-                    old = false;
-                    Snackbar.make(recyclerView,"Showing upcoming events",Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
         return view;
     }
+
+
+
+    /**
+     * Replaces a given fragment in the fragment frame. should probably go somewhere else eventually where it can be more widely used
+     *
+     * @param fragment desired fragment within the scope of this class (it must implement its OnFragmentIneractionListener)
+     * @param backStack it will add it to the backstack if true
+     */
+    static public void replaceFragment(Fragment fragment, boolean backStack) {
+        mFragmentTransition = mFragmentManager.beginTransaction();
+        mFragmentTransition.setCustomAnimations(R.anim.slide_in_right,R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_right);
+
+        if(backStack)
+            mFragmentTransition.replace(R.id.frameeee,fragment).addToBackStack("").commit();
+        else
+            mFragmentTransition.replace(R.id.viewPager,fragment).commit();
+    }
+
 
 }

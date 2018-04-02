@@ -1,12 +1,10 @@
 package io.github.wesmartin17.cssa_app_seg3125;
 
 import android.graphics.Color;
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 Color.WHITE);
 
         final String[] labels = {"EVENTS","HOME","INFO"};
+
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

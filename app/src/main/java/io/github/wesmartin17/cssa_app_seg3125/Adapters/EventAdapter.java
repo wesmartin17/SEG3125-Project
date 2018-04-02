@@ -36,13 +36,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     public void onBindViewHolder(EventViewHolder holder, int position) {
 
         switch(position){
-            case 0:
+            case 3:
                 holder.setTitleText("Billiards Night @ Mclarens");
                 holder.setDescriptionText("Come out and shoot some billiards with some friends and muck some food");
                 holder.setDateText("January 22, 7:00PM");
                 holder.setImgDrawable(context.getResources().getDrawable(R.drawable.billiards));
                 break;
-            case 1:
+            case 4:
                 holder.setTitleText("Lightning talks");
                 holder.setDateText("March 18, 7:00PM");
                 holder.setDescriptionText("Come hear what people have to say about lightning.");
