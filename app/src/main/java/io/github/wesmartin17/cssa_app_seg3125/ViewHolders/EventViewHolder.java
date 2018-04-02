@@ -18,6 +18,8 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
     TextView mTitleText;
     TextView mDescriptionText;
+    TextView mDateText;
+
     ImageView mImageView;
     Context c;
     View v;
@@ -26,6 +28,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         mTitleText = (TextView)itemView.findViewById(R.id.titleText);
         mDescriptionText = (TextView)itemView.findViewById(R.id.descriptionText);
         mImageView = (ImageView)itemView.findViewById(R.id.imageView);
+        mDateText = (TextView)itemView.findViewById(R.id.dateText);
         c = itemView.getContext();
         v = itemView;
     }
@@ -41,6 +44,10 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
     public void setImgDrawable(Drawable d){
         mImageView.setImageDrawable(d);
 
+    }
+
+    public void setDateText(String text){
+        mDateText.setText(text);
     }
 
 }

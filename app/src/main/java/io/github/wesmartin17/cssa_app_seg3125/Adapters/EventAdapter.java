@@ -28,7 +28,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     @Override
     public EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View card = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_event_card,parent,false);
-
+        
         return new EventViewHolder(card);
     }
 
@@ -39,12 +39,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
             case 0:
                 holder.setTitleText("Billiards Night @ Mclarens");
                 holder.setDescriptionText("Come out and shoot some billiards with some friends and muck some food");
-
-                //SOMEONE FIGURE THIS SHIT OUT THIS IS MY LEAST FAVOURITE THING ABOUT ANDROID ITS BULLSHIT
+                holder.setDateText("January 22, 7:00PM");
                 holder.setImgDrawable(context.getResources().getDrawable(R.drawable.billiards));
                 break;
             case 1:
                 holder.setTitleText("Lightning talks");
+                holder.setDateText("March 18, 7:00PM");
                 holder.setDescriptionText("Come hear what people have to say about lightning.");
                 holder.setImgDrawable(context.getResources().getDrawable(R.drawable.lightning));
                 break;
@@ -53,6 +53,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 8;
     }
 }
