@@ -15,7 +15,9 @@
         android:layout_weight="1"
         android:background="@color/colorPrimary"
         android:clipToPadding="false"
-        android:paddingBottom="50dp" />
+        android:paddingBottom="50dp"
+        android:scrollbarThumbVertical="@drawable/scrollbar"
+        android:scrollbars="vertical" />
 
     <LinearLayout
         android:layout_width="match_parent"

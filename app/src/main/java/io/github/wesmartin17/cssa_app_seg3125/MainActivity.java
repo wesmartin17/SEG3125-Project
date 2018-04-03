@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 Color.WHITE,
                 Color.WHITE);
 
-        final String[] labels = {"EVENTS","HOME","INFO"};
+        final String[] labels = {"EVENTS","HOME","EXEC"};
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
