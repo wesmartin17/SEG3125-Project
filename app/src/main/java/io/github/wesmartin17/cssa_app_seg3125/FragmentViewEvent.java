@@ -7,16 +7,16 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,19 +26,55 @@ import android.widget.Toast;
  */
 public class FragmentViewEvent extends Fragment {
 
+    boolean favourited = false;
+
     Toolbar toolbar;
     Button fbButton;
 
+    TextView mTitleText;
+    TextView mLocationText;
+    TextView mDateText;
+    TextView mDescriptionText;
+    ImageView mImageView;
+
+    Bundle bundle;
+
     public FragmentViewEvent() {
         // Required empty public constructor
+
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            this.bundle = bundle;
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_event, container, false);
+
+        mTitleText = (TextView)view.findViewById(R.id.titleText);
+        mDateText = (TextView)view.findViewById(R.id.dateText);
+        mLocationText = (TextView)view.findViewById(R.id.locationText);
+        mDescriptionText = (TextView)view.findViewById(R.id.detail_description_content);
+        mImageView = (ImageView)view.findViewById(R.id.imageView);
+
+        if(bundle!=null) {
+            mTitleText.setText(bundle.getString("TITLE"));
+            mDateText.setText(bundle.getString("DATE"));
+            mLocationText.setText(bundle.getString("LOCATION"));
+            mDescriptionText.setText(bundle.getString("DESCRIPTION"));
+            //mImageView.setImageResource(bundle.get);
+        }
+        else{
+            Log.v("CssA","bundle null boi");
+        }
         fbButton = (Button)view.findViewById(R.id.fbButton);
         toolbar = (Toolbar)view.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
@@ -49,16 +85,26 @@ public class FragmentViewEvent extends Fragment {
             }
         });
 
-        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.inflateMenu(R.menu.event_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getOrder()) {
                     //favourite pressed
                     case 0:
-                        item.setIcon(R.drawable.ic_star);
-                        Toast.makeText(getContext(),"Following event.  You will receive notifications about any changes to the event",Toast.LENGTH_LONG).show();
+                        if(!favourited) {
+                            favourited = true;
+                            item.setIcon(R.drawable.ic_star);
+                            Toast.makeText(getContext(), "Following event. You will receive a reminder and notifications for any changes to the event details", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            favourited = false;
+                            item.setIcon(R.drawable.ic_star_border);
+                            Toast.makeText(getContext(), "Event unfollowed", Toast.LENGTH_LONG).show();
+
+                        }
                         return true;
+                    //contact organizer pressed
                     case 1:
                         Intent intent = new Intent(Intent.ACTION_SEND);
                         intent.setType("plain/text");
@@ -72,14 +118,13 @@ public class FragmentViewEvent extends Fragment {
             }
         });
 
-        final TextView descriptionText = (TextView) view.findViewById(R.id.detail_description_content);
         final TextView showAll = (TextView) view.findViewById(R.id.detail_read_all);
         showAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAll.setVisibility(View.INVISIBLE);
 
-                descriptionText.setMaxLines(Integer.MAX_VALUE);
+                mDescriptionText.setMaxLines(Integer.MAX_VALUE);
             }
         });
 

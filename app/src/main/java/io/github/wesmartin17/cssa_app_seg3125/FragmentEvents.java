@@ -29,7 +29,7 @@ public class FragmentEvents extends Fragment {
         View view = inflater.inflate(R.layout.fragment_events, container, false);
         mFragmentManager = getFragmentManager();
         mFragmentTransition = mFragmentManager.beginTransaction();
-        mFragmentTransition.setCustomAnimations(R.anim.slide_in_right,R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_right);
+        mFragmentTransition.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,android.R.anim.fade_in,android.R.anim.fade_out);
         mFragmentTransition.replace(R.id.frameeee,new FragmentListOfEvents());
         mFragmentTransition.addToBackStack(null);
         //mFragmentManager.beginTransaction().add(new FragmentEvents(),"EVENTS").commit();
@@ -48,7 +48,7 @@ public class FragmentEvents extends Fragment {
      */
     static public void replaceFragment(Fragment fragment, boolean backStack) {
         mFragmentTransition = mFragmentManager.beginTransaction();
-        mFragmentTransition.setCustomAnimations(R.anim.slide_in_right,R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_right);
+        mFragmentTransition.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,android.R.anim.fade_in,android.R.anim.fade_out);
 
         if(backStack)
             mFragmentTransition.replace(R.id.frameeee,fragment).addToBackStack("").commit();

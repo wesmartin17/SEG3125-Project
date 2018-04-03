@@ -1,7 +1,6 @@
 package io.github.wesmartin17.cssa_app_seg3125.ViewHolders;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -10,15 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import io.github.wesmartin17.cssa_app_seg3125.FragmentEvents;
 import io.github.wesmartin17.cssa_app_seg3125.FragmentViewEvent;
 import io.github.wesmartin17.cssa_app_seg3125.R;
-import io.github.wesmartin17.cssa_app_seg3125.FragmentEvents;
 
 /**
- * Created by WM on 2018-03-30.
+ * Created by WM on 2018-04-03.
  */
 
-public class EventViewHolder extends RecyclerView.ViewHolder {
+public class ArticleViewHolder  extends RecyclerView.ViewHolder{
 
     TextView mTitleText;
     TextView mDescriptionText;
@@ -26,9 +25,8 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
     TextView mLocationText;
     Button mButton;
     ImageView mImageView;
-    Context c;
-    View v;
-    public EventViewHolder(View itemView) {
+
+    public ArticleViewHolder(View itemView) {
         super(itemView);
         mTitleText = (TextView)itemView.findViewById(R.id.titleText);
         mDescriptionText = (TextView)itemView.findViewById(R.id.linerLayout);
@@ -36,7 +34,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         mDateText = (TextView)itemView.findViewById(R.id.dateText);
         mLocationText = (TextView)itemView.findViewById(R.id.locationText);
         mButton = (Button)itemView.findViewById(R.id.viewEventButton);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        /*mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -50,9 +48,8 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
                 f.setArguments(bundle);
                 FragmentEvents.replaceFragment(f,true);
             }
-        });
-        c = itemView.getContext();
-        v = itemView;
+        });*/
+
     }
 
     public void setTitleText(String text){
