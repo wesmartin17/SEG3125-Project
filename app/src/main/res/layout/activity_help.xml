@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="io.github.wesmartin17.cssa_app_seg3125.Help">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/main_logo" />
+
+    <TextView
+        android:id="@+id/text_view_help"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Welcome to the Computer Science Student Association Application"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:text="      Our goal is to help you with any issues you may have during your time at the University of Ottawa.
+        This application will keep you informed on any events provided by the association as well as general announcements to inform you of any important information.
+        We also include a page of the current executives in case you would like to contact someone directly about any concerns"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:text="Details about settings"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="      There are options for turning on push notificatons for events and/or announcements.
+        You can also switch the language to French.
+        If you would like to participate in contributing statistics on events, we have also included the option to turns 'stats' on.
+This will help your executive team to know what the interests of the students are more accurately."/>
+
+
+</LinearLayout>
