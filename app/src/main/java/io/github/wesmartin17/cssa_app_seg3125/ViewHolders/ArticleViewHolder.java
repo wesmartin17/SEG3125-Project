@@ -23,17 +23,19 @@ public class ArticleViewHolder  extends RecyclerView.ViewHolder{
     TextView mDescriptionText;
     TextView mDateText;
     TextView mLocationText;
+    TextView showAll;
     Button mButton;
-    ImageView mImageView;
+    //ImageView mImageView;
 
     public ArticleViewHolder(View itemView) {
         super(itemView);
         mTitleText = (TextView)itemView.findViewById(R.id.titleText);
-        mDescriptionText = (TextView)itemView.findViewById(R.id.linerLayout);
-        mImageView = (ImageView)itemView.findViewById(R.id.imageView);
+        mDescriptionText = (TextView)itemView.findViewById(R.id.detail_description_content);
+        //mImageView = (ImageView)itemView.findViewById(R.id.imageView);
         mDateText = (TextView)itemView.findViewById(R.id.dateText);
         mLocationText = (TextView)itemView.findViewById(R.id.locationText);
-        mButton = (Button)itemView.findViewById(R.id.viewEventButton);
+        showAll = (TextView)itemView.findViewById(R.id.detail_read_all);
+
         /*mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,29 @@ public class ArticleViewHolder  extends RecyclerView.ViewHolder{
             }
         });*/
 
+        showAll = (TextView)itemView.findViewById(R.id.detail_read_all);
+
+        showAll.setOnClickListener(new View.OnClickListener() {
+            boolean expanded = false;
+
+            @Override
+            public void onClick(View v) {
+                if(!expanded) {
+                    showAll.setText("▲");
+
+                    mDescriptionText.setMaxLines(Integer.MAX_VALUE);
+                    expanded = true;
+                }
+                else{
+                    showAll.setText("▼");
+
+                    mDescriptionText.setMaxLines(5);
+                    expanded = false;
+                }
+            }
+        });
+
+
     }
 
     public void setTitleText(String text){
@@ -61,7 +86,7 @@ public class ArticleViewHolder  extends RecyclerView.ViewHolder{
     }
 
     public void setImgDrawable(Drawable d){
-        mImageView.setImageDrawable(d);
+        //mImageView.setImageDrawable(d);
 
     }
 

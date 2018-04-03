@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         });
         mTabLayout.setupWithViewPager(mViewPager);
 
+
+
         mViewPager.setAdapter(new FragmentPagerAdapter(mFragmentManager) {
             @Override
             public Fragment getItem(int position) {
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.getTabAt(0).setIcon(R.drawable.event);
         mTabLayout.getTabAt(1).setIcon(R.drawable.cal);
         mTabLayout.getTabAt(2).setIcon(R.drawable.info);
+        mViewPager.setCurrentItem(1);
     }
 
     @Override

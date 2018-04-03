@@ -12,6 +12,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:elevation="4dp"
         app:cardCornerRadius="5dp">
 
@@ -21,12 +22,15 @@
 
             <View
                 android:id="@+id/view"
-                android:layout_width="358dp"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@+id/dateText"
-                tools:layout_editor_absoluteX="8dp" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
             <TextView
                 android:id="@+id/titleText"
