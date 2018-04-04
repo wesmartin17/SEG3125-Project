@@ -1,5 +1,6 @@
 package io.github.wesmartin17.cssa_app_seg3125;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("CSSA");
+        getSupportActionBar().setTitle("CSSA/AEI");
         getSupportActionBar().setLogo(R.drawable.main_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -53,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         });
         mTabLayout.setupWithViewPager(mViewPager);
 
-
-
         mViewPager.setAdapter(new FragmentPagerAdapter(mFragmentManager) {
             @Override
             public Fragment getItem(int position) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         });
         mTabLayout.getTabAt(0).setIcon(R.drawable.event);
         mTabLayout.getTabAt(1).setIcon(R.drawable.cal);
-        mTabLayout.getTabAt(2).setIcon(R.drawable.info);
+        mTabLayout.getTabAt(2).setIcon(R.drawable.ic_perm_contact_calendar);
         mViewPager.setCurrentItem(1);
     }
 
@@ -86,5 +86,24 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu,menu);
 
         return b;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                myIntent = new Intent(MainActivity.this, SettingsActivity.class);
+
+                MainActivity.this.startActivity(myIntent);
+                return true;
+            case R.id.action_help:
+                myIntent = new Intent(MainActivity.this, HelpActivity.class);
+                MainActivity.this.startActivity(myIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 }

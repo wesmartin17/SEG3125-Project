@@ -31,7 +31,6 @@ public class FragmentEvents extends Fragment {
         mFragmentTransition = mFragmentManager.beginTransaction();
         mFragmentTransition.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,android.R.anim.fade_in,android.R.anim.fade_out);
         mFragmentTransition.replace(R.id.frameeee,new FragmentListOfEvents());
-        mFragmentTransition.addToBackStack(null);
         //mFragmentManager.beginTransaction().add(new FragmentEvents(),"EVENTS").commit();
         mFragmentTransition.commit();
 

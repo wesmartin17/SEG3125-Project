@@ -36,6 +36,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         mDateText = (TextView)itemView.findViewById(R.id.dateText);
         mLocationText = (TextView)itemView.findViewById(R.id.locationText);
         mButton = (Button)itemView.findViewById(R.id.viewEventButton);
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,11 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
                 bundle.putString("DESCRIPTION",mDescriptionText.getText().toString());
                 bundle.putString("DATE",mDateText.getText().toString());
                 bundle.putString("LOCATION",mLocationText.getText().toString());
+
                 //bundle.putInt("IMAGE",mImageView.getDrawable().get);
+                mImageView.setDrawingCacheEnabled(true);
+                bundle.putParcelable("IMAGE",mImageView.getDrawingCache());
+
 
                 f.setArguments(bundle);
                 FragmentEvents.replaceFragment(f,true);

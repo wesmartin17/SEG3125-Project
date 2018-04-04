@@ -56,16 +56,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleViewHolder> {
                 holder.setDescriptionText("Goodluck to everyone attending the hackathon this weekend!");
                 break;
         }
-
-        holder.setDateText("January "+(((getItemCount()-position)+1) + (10*(2-page)))+" 2018");
-/*        if(page == 1) {
-
-        }
-        else if(page == 2){
-            switch(position){
-
-            }
-        }*/
     }
 
     @Override

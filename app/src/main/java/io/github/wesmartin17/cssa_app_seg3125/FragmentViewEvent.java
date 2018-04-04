@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -70,7 +71,8 @@ public class FragmentViewEvent extends Fragment {
             mDateText.setText(bundle.getString("DATE"));
             mLocationText.setText(bundle.getString("LOCATION"));
             mDescriptionText.setText(bundle.getString("DESCRIPTION"));
-            //mImageView.setImageResource(bundle.get);
+
+            mImageView.setImageBitmap((Bitmap)bundle.getParcelable("IMAGE"));
         }
         else{
             Log.v("CssA","bundle null boi");

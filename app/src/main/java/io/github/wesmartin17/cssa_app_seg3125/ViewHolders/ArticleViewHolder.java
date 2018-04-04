@@ -13,6 +13,8 @@ import io.github.wesmartin17.cssa_app_seg3125.FragmentEvents;
 import io.github.wesmartin17.cssa_app_seg3125.FragmentViewEvent;
 import io.github.wesmartin17.cssa_app_seg3125.R;
 
+import static android.view.View.GONE;
+
 /**
  * Created by WM on 2018-04-03.
  */
@@ -36,23 +38,9 @@ public class ArticleViewHolder  extends RecyclerView.ViewHolder{
         mLocationText = (TextView)itemView.findViewById(R.id.locationText);
         showAll = (TextView)itemView.findViewById(R.id.detail_read_all);
 
-        /*mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                FragmentViewEvent f = new FragmentViewEvent();
-                bundle.putString("TITLE",mTitleText.getText().toString());
-                bundle.putString("DESCRIPTION",mDescriptionText.getText().toString());
-                bundle.putString("DATE",mDateText.getText().toString());
-                bundle.putString("LOCATION",mLocationText.getText().toString());
-                //bundle.putInt("IMAGE",mImageView.getDrawable().get);
-
-                f.setArguments(bundle);
-                FragmentEvents.replaceFragment(f,true);
-            }
-        });*/
-
         showAll = (TextView)itemView.findViewById(R.id.detail_read_all);
+
+
 
         showAll.setOnClickListener(new View.OnClickListener() {
             boolean expanded = false;
@@ -83,6 +71,9 @@ public class ArticleViewHolder  extends RecyclerView.ViewHolder{
 
     public void setDescriptionText(String text){
         mDescriptionText.setText(text);
+        if(mDescriptionText.getLineCount() <=2){
+            showAll.setVisibility(GONE);
+        }
     }
 
     public void setImgDrawable(Drawable d){
