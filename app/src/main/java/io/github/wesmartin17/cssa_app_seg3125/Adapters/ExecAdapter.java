@@ -30,34 +30,42 @@ public class ExecAdapter extends RecyclerView.Adapter<ExecViewHolder> {
     public void onBindViewHolder(ExecViewHolder holder, int position) {
         switch(position){
             case 0:
-                holder.setTitleText("Hac Mayter");
-                holder.setDescriptionText("Exec Affairs");
+                holder.setTitleText("Joesph Novack");
+                holder.setDescriptionText("VP Exec Affairs");
                 break;
             case 1:
-                holder.setTitleText("Deyna Roewald");
-                holder.setDescriptionText("Internal");
+                holder.setTitleText("Sanda Kear");
+                holder.setDescriptionText("VP Internal");
                 break;
             case 2:
-                holder.setTitleText("Panita Opescu");
+                holder.setTitleText("Irena Amerine");
                 holder.setDescriptionText("President");
                 break;
             case 3:
                 holder.setTitleText("Junxion Jlorendo");
-                holder.setDescriptionText("Social");
+                holder.setDescriptionText("VP Social");
                 break;
             case 4:
-                holder.setTitleText("Catteo Molombi");
-                holder.setDescriptionText("Comms");
+                holder.setTitleText("Kyle Neth");
+                holder.setDescriptionText("VP Communications");
                 break;
             case 5:
-                holder.setTitleText("Piego Dontones");
-                holder.setDescriptionText("Academic");
+                holder.setTitleText("Ron Swanson");
+                holder.setDescriptionText("VP Academic");
+                break;
+            case 6:
+                holder.setTitleText("Abe Swanberg");
+                holder.setDescriptionText("VP Finance");
+                break;
+            case 7:
+                holder.setTitleText("Harmony Lesesne");
+                holder.setDescriptionText("VP External");
                 break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return 8;
     }
 }

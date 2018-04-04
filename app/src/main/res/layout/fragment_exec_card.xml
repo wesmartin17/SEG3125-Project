@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/button_outline"
                 android:drawableLeft="@drawable/ic_contact_mail"
                 android:drawablePadding="10dp"
