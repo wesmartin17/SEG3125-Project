@@ -31,26 +31,33 @@ public class ExecAdapter extends RecyclerView.Adapter<ExecViewHolder> {
         switch(position){
             case 0:
                 holder.setTitleText("Hac Mayter");
-                holder.setDescriptionText("Who knows");
+                holder.setDescriptionText("Exec Affairs");
                 break;
             case 1:
                 holder.setTitleText("Deyna Roewald");
-                holder.setDescriptionText("I couldn't tell you tbh");
+                holder.setDescriptionText("Internal");
                 break;
             case 2:
                 holder.setTitleText("Panita Opescu");
-                holder.setDescriptionText("Intern at Apple");
+                holder.setDescriptionText("President");
                 break;
             case 3:
                 holder.setTitleText("Junxion Jlorendo");
                 holder.setDescriptionText("Social");
                 break;
-
+            case 4:
+                holder.setTitleText("Catteo Molombi");
+                holder.setDescriptionText("Comms");
+                break;
+            case 5:
+                holder.setTitleText("Piego Dontones");
+                holder.setDescriptionText("Academic");
+                break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 6;
     }
 }
