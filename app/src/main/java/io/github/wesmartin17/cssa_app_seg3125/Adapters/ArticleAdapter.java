@@ -34,6 +34,29 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleViewHolder> {
     @Override
     public void onBindViewHolder(ArticleViewHolder holder, int position) {
 
+        switch (position){
+            case 0:
+                holder.setTitleText("Elections Today!!");
+                holder.setDateText("March 28th, 2018");
+                holder.setDescriptionText("Come and vote for next years executives of the CSSA!");
+                break;
+            case 1:
+                holder.setTitleText("Reading Week");
+                holder.setDateText("February 18th-22nd, 2018");
+                holder.setDescriptionText("Enjoy the week off, dont forget to study!");
+                break;
+            case 2:
+                holder.setTitleText("Looking for a Chief of Elections Officer");
+                holder.setDateText("February 15th, 2018");
+                holder.setDescriptionText("Come to our office in SITE 4076 to apply, thanks for your help!");
+                break;
+            case 3:
+                holder.setTitleText("UOttaHack");
+                holder.setDateText("February 12th, 2018");
+                holder.setDescriptionText("Goodluck to everyone attending the hackathon this weekend!");
+                break;
+        }
+
         holder.setDateText("January "+(((getItemCount()-position)+1) + (10*(2-page)))+" 2018");
 /*        if(page == 1) {
 
