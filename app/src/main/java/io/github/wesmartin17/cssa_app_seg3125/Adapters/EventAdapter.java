@@ -36,15 +36,39 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     public void onBindViewHolder(EventViewHolder holder, int position) {
 
         switch(position){
-            case 3:
+            case 0:
+                holder.setTitleText("Billiards Night @ Mclarens");
+                holder.setDescriptionText("Come out and shoot some billiards with some friends and muck some food");
+                holder.setDateText("January 2, 7:00PM");
+                holder.setImgDrawable(context.getResources().getDrawable(R.drawable.billiards));
+                break;
+            case 1:
+                holder.setTitleText("Lan Party");
+                holder.setDescriptionText("Come out and play games with some friends and muck some food");
+                holder.setDateText("January 20, 7:00PM");
+                holder.setImgDrawable(context.getResources().getDrawable(R.drawable.billiards));
+                break;
+            case 2:
                 holder.setTitleText("Billiards Night @ Mclarens");
                 holder.setDescriptionText("Come out and shoot some billiards with some friends and muck some food");
                 holder.setDateText("January 22, 7:00PM");
                 holder.setImgDrawable(context.getResources().getDrawable(R.drawable.billiards));
                 break;
-            case 4:
+            case 3:
                 holder.setTitleText("Lightning talks");
                 holder.setDateText("March 18, 7:00PM");
+                holder.setDescriptionText("Come hear what people have to say about lightning.");
+                holder.setImgDrawable(context.getResources().getDrawable(R.drawable.lightning));
+                break;
+            case 4:
+                holder.setTitleText("Junxion with Justyn");
+                holder.setDateText("March 30, 10:00PM");
+                holder.setDescriptionText("Come hangout with Justyn at Junxion.");
+                holder.setImgDrawable(context.getResources().getDrawable(R.drawable.lightning));
+                break;
+            case 5:
+                holder.setTitleText("Lightning talks");
+                holder.setDateText("April 1, 7:00PM");
                 holder.setDescriptionText("Come hear what people have to say about lightning.");
                 holder.setImgDrawable(context.getResources().getDrawable(R.drawable.lightning));
                 break;
@@ -53,6 +77,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 8;
+        return 6;
     }
 }
